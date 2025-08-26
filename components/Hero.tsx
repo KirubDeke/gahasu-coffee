@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaWater, FaBoxOpen, FaCheckCircle } from "react-icons/fa";
 import ButtonOne from "./ui/ButtonOne";
 import { motion, Variants } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // Motion Variants
 const fadeInUp: Variants = {
@@ -31,6 +32,7 @@ const staggerContainer: Variants = {
 };
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <section className="relative min-h-screen w-full bg-background flex flex-col items-center px-6 sm:px-12 lg:px-20 overflow-hidden py-8">
       {/* Title Behind Image */}
@@ -95,7 +97,9 @@ export default function Hero() {
             variants={fadeInUp}
             className="flex justify-start sm:justify-center lg:justify-start"
           >
-            <ButtonOne>Learn More</ButtonOne>
+            <ButtonOne
+            onClick={() => router.push("/home#about")}
+            >Learn More</ButtonOne>
           </motion.div>
         </motion.div>
 
